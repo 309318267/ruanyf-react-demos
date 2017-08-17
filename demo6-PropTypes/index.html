@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>demo1</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+
+    var PropsChildren = React.createClass({
+        propTypes:{         //设置属性title必须为string，并且不可缺
+            title:React.PropTypes.string.isRequired
+        },
+
+        getDefaultProps:function () {       //设置默认的title值
+            return {
+                title:"moren"
+            };
+        },
+
+        render:function () {
+            return (
+                    <div>{this.props.title}</div>
+            )
+        }
+    });
+
+
+    ReactDOM.render(
+        <PropsChildren/>,
+        document.getElementById("example")
+
+    )
+</script>
+
+</body>
+</html>

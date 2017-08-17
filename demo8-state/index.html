@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+    <title>demo1</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+
+    var LikeButton = React.createClass({
+        /*getInitialState: function() {       //设置初始状态 是一个对象，这个对象可以通过 this.state 属性读取
+            return {liked: false};
+        },
+        handleClick: function(event) {
+            this.setState({liked: !this.state.liked});     //修改状态值 修改以后，自动调用 this.render 方法，再次渲染组件
+        },*/
+
+
+
+
+
+        /*由于 this.props 和 this.state 都用于描述组件的特性，可能会产生混淆。
+        一个简单的区分方法是，this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。*/
+
+
+
+
+        getInitialState: function() {       //getInitialState设置初始状态 是一个对象，这个对象可以通过 this.state 属性读取
+            return {color: false,
+                    liked:false
+                }
+        },
+
+        handleClick: function(event) {
+            this.setState({color: !this.state.color,
+                           liked:!this.state.liked
+                            });     //setState修改状态值 修改以后，自动调用 this.render 方法，再次渲染组件
+        },
+
+        render: function() {
+            var text = this.state.liked ? 'like' : 'haven\'t liked';
+            var color = this.state.color? "blue" : "red";
+            return (
+                    <p onClick={this.handleClick} style={{color:color}}>
+                        You {text} this. Click to toggle.
+                    </p>
+            );
+        }
+    });
+
+    ReactDOM.render(
+            <LikeButton />,
+        document.getElementById('example')
+    );
+
+</script>
+
+</body>
+</html>
